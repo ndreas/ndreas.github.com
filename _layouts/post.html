@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div id="page">
+  <div class="article">
+    <div class="header">
+      <span class="published">{{ page.date | date: "%B %d, %Y" }}</span>
+      <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+    </div>
+    <div class="content">
+      {{ content }}
+    </div>
+  </div>
+
+  <div id="archive">
+    <h2>All posts</h2>
+    <ul>
+      {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">
+          <span class="published">{{ post.date | date: "%B %d, %Y" }}</span>
+          <span class="title">{{ post.title }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>stdin.se</title>
+ <link href="http://stdin.se/atom.xml" rel="self"/>
+ <link href="http://stdin.se/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://stdin.se/</id>
+ <author>
+   <name>ndreas</name>
+ </author>
+ 
+ {% for post in site.posts limit:100 %}
+ <entry>
+   <title>{{ post.title }}</title>
+   {% for category in post.categories %}
+   <category term="{{category}}" />
+   {% endfor %}
+   <link href="http://stdin.se{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>http://stdin.se{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
+ </entry>
+ {% endfor %}
+ 
+</feed>

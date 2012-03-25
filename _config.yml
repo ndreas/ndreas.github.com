@@ -1,0 +1,11 @@
+auto: true
+pygments: true
+
+paginate: 1
+
+permalink: /:year/:month/:day/:title.html
+
+exclude: 
+  - "README.md"
+  - "Rakefile"
+  - "changelog.md"
